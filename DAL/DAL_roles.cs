@@ -11,46 +11,46 @@ namespace DAL
     {
         public static Roles Insert(Roles Entidad)
         {
-            using BDMPOO bd = new();
+            using metodo data = new();
             Entidad.Activo = true;
             Entidad.FechaRegistro = DateTime.Now;
-            bd.Roles.Add(Entidad);
-            bd.SaveChanges();
+            data.Roles.Add(Entidad);
+            data.SaveChanges();
             return Entidad;
         }
         public static bool Update(Roles Entidad)
         {
-            using BDMPOO bd = new();
-            var Registro = bd.Roles.Find(Entidad.IdRol);
+            using metodo data = new();
+            var Registro = data.Roles.Find(Entidad.IdRol);
             if (Registro == null)
             {
                 return false;
             }
             Registro.Rol = Entidad.Rol;
             Registro.FechaActualizacion = DateTime.Now;
-            return bd.SaveChanges() > 0;
+            return data.SaveChanges() > 0;
         }
         public static bool Delete(Roles Entidad)
         {
-            using BDMPOO bd = new();
-            var Registro = bd.Roles.Find(Entidad.IdRol);
+            using metodo data = new();
+            var Registro = data.Roles.Find(Entidad.IdRol);
             if (Registro == null)
             {
                 return false;
             }
             Registro.Activo = false;
             Registro.FechaActualizacion = DateTime.Now;
-            return bd.SaveChanges() > 0;
+            return data.SaveChanges() > 0;
         }
         public static Roles Registro(short IdRegistro)
         {
-            using BDMPOO bd = new();
-            return bd.Roles.Find(IdRegistro);
+            using metodo data = new();
+            return data.Roles.Find(IdRegistro);
         }
         public static List<Roles> Listar(bool Activo = true)
         {
-            using BDMPOO bd = new();
-            return bd.Roles.Where(a => a.Activo == Activo).ToList();
+            using metodo data = new();
+            return data.Roles.Where(a => a.Activo == Activo).ToList();
         }
     }
 }

@@ -8,18 +8,18 @@ namespace EL
     public class Usuarios
     {
         [Key]
-        public int IdUsuario { get; set; }
+        public int IdUsuarios { get; set; }
         [MaxLength(200)]
         [Required]
-        public string NombreCompleto { get; set; }
+        public string Nombredelusuario { get; set; }
         [MaxLength(200)]
         [Required]
-        public string Correo { get; set; }
+        public string Correodelusuario { get; set; }
         [MaxLength(50)]
         [Required]
-        public string UserName { get; set; }
+        public string Usuario { get; set; }
         [Required]
-        public byte[] Password { get; set; }
+        public byte[] contraseña { get; set; }
         [Required]
         public bool Bloqueado { get; set; }
         [Required]
@@ -36,10 +36,10 @@ namespace EL
 
         public Usuarios()
         {
-            NombreCompleto = string.Empty;
-            Correo = string.Empty;
-            UserName = string.Empty;
-            Password = UTF8Encoding.UTF8.GetBytes(string.Empty);
+            Nombredelusuario = string.Empty;
+            Correodelusuario = string.Empty;
+            Usuario = string.Empty;
+            contraseña = UTF8Encoding.UTF8.GetBytes(string.Empty);
         }
     }
 }

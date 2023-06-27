@@ -9,56 +9,56 @@ namespace DAL
     {
         public static Permisos Insert(Permisos Entidad)
         {
-            using (BDMPOO bd = new BDMPOO())
+            using (metodo data = new metodo())
             {
                 Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
-                bd.Permisos.Add(Entidad);
-                bd.SaveChanges();
+                data.Permisos.Add(Entidad);
+                data.SaveChanges();
                 return Entidad;
             }
         }
         public static bool Update(Permisos Entidad)
         {
-            using (BDMPOO bd = new BDMPOO())
+            using (metodo data = new metodo())
             {
-                var Registro = bd.Permisos.Find(Entidad.IdPermiso);
+                var Registro = data.Permisos.Find(Entidad.IdPermiso);
                 Registro.Permiso = Entidad.Permiso;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
-                return bd.SaveChanges() > 0;
+                return data.SaveChanges() > 0;
             }
         }
         public static bool Anular(Permisos Entidad)
         {
-            using (BDMPOO bd = new BDMPOO())
+            using (metodo data = new metodo())
             {
-                var Registro = bd.Permisos.Find(Entidad.IdPermiso);
+                var Registro = data.Permisos.Find(Entidad.IdPermiso);
                 Registro.Activo = Entidad.Activo;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
-                return bd.SaveChanges() > 0;
+                return data.SaveChanges() > 0;
             }
         }
         public static bool Existe(Permisos Entidad)
         {
-            using (BDMPOO bd = new BDMPOO())
+            using (metodo data = new metodo())
             {
-                return bd.Permisos.Where(a => a.IdPermiso == Entidad.IdPermiso).Count() > 0;
+                return data.Permisos.Where(a => a.IdPermiso == Entidad.IdPermiso).Count() > 0;
             }
         }
         public static Permisos Registro(Permisos Entidad)
         {
-            using (BDMPOO bd = new BDMPOO())
+            using (metodo data = new metodo())
             {
-                return bd.Permisos.Where(a => a.IdPermiso == Entidad.IdPermiso).SingleOrDefault();
+                return data.Permisos.Where(c => c.IdPermiso == Entidad.IdPermiso).SingleOrDefault();
             }
         }
         public static List<Permisos> Lista(bool Activo = true)
         {
-            using (BDMPOO bd = new BDMPOO())
+            using (metodo data = new metodo())
             {
-                return bd.Permisos.Where(a => a.Activo == Activo).ToList();
+                return data.Permisos.Where(c => c.Activo == Activo).ToList();
             }
         }
     }

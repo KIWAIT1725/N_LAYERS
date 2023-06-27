@@ -3,9 +3,9 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 namespace DAL
 {
-    public class BDMPOO : DbContext
+    public class metodo : DbContext
     {
-        public BDMPOO() : base(Conexion.ConexionString(false)) { }
+        public metodo() : base(Conexion.ConexionString(false)) { }
 
         public virtual DbSet<Formularios>? Formularios { get; set; }
         public virtual DbSet<Permisos>? Permisos { get; set; }

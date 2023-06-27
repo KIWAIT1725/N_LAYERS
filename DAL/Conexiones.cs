@@ -3,7 +3,7 @@ namespace DAL
 {
     public static class Conexion
     {
-        private static string NombreAplicacion = "GeneradorCapas";
+        private static string NombreAplicacion = "";
         private static string Servidor = @"";
         private static string Usuario = "";
         private static string Password = "";
