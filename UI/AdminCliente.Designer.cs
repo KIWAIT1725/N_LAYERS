@@ -38,8 +38,8 @@
             btnGuardar = new Button();
             btnAnular = new Button();
             lblListaClientes = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            gridClientes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridClientes).BeginInit();
             SuspendLayout();
             // 
             // lblNombre
@@ -136,15 +136,15 @@
             lblListaClientes.TabIndex = 9;
             lblListaClientes.Text = "Lista de Clientes Ingresados";
             // 
-            // dataGridView1
+            // gridClientes
             // 
-            dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 277);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(308, 144);
-            dataGridView1.TabIndex = 10;
+            gridClientes.BackgroundColor = Color.FromArgb(224, 224, 224);
+            gridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridClientes.Location = new Point(12, 277);
+            gridClientes.Name = "gridClientes";
+            gridClientes.RowTemplate.Height = 25;
+            gridClientes.Size = new Size(308, 144);
+            gridClientes.TabIndex = 10;
             // 
             // AdminCliente
             // 
@@ -152,7 +152,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(341, 434);
-            Controls.Add(dataGridView1);
+            Controls.Add(gridClientes);
             Controls.Add(lblListaClientes);
             Controls.Add(btnAnular);
             Controls.Add(btnGuardar);
@@ -167,7 +167,7 @@
             Name = "AdminCliente";
             Text = "AdminCliente";
             Load += AdminCliente_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,6 +184,6 @@
         private Button btnGuardar;
         private Button btnAnular;
         private Label lblListaClientes;
-        private DataGridView dataGridView1;
+        private DataGridView gridClientes;
     }
 }
