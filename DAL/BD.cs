@@ -7,6 +7,7 @@ namespace DAL
     {
         public metodo() : base(Conexion.ConexionString(false)) { }
 
+        public virtual DbSet<Clientes>? Clientes { get; set; }
         public virtual DbSet<Formularios>? Formularios { get; set; }
         public virtual DbSet<Permisos>? Permisos { get; set; }
         public virtual DbSet<Roles>? Roles { get; set; }
