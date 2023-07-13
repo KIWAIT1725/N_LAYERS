@@ -42,5 +42,26 @@ namespace UI
                 MessageBox.Show(Error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void Limpiar()
+        {
+            txtNombre.Text= string.Empty;
+            txtCorreo.Text= string.Empty;
+            txtTelefono.Text = string.Empty;
+        }
+        private void Guardar()
+        {
+            Clientes clientes = new();
+            clientes.nombreCliente= txtNombre.Text;
+            clientes.Numero = txtTelefono.Text;
+            clientes.Correo = txtCorreo.Text;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Guardar();
+            cargarGrid();
+            Limpiar();
+
+        }
     }
 }
