@@ -29,6 +29,12 @@ namespace UI
             try
             {
                 gridClientes.DataSource = BLL_Clientes.Lista();
+                gridClientes.Columns[0].Visible = false;
+                gridClientes.Columns[4].Visible = false;
+                gridClientes.Columns[5].Visible = false;
+                gridClientes.Columns[6].Visible = false;
+                gridClientes.Columns[7].Visible = false;
+                gridClientes.Columns[8].Visible = false;
             }
             catch (Exception Error)
             {
