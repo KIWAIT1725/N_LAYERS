@@ -16,6 +16,8 @@ namespace EL
         public string Numero { get; set; }
         [Required]
         [MaxLength(200)]
+        public string Correo { get; set; }
+        [Required]
         public bool activo  { get; set;}
         [Required]
         public int IdUsuarioRegistra { get; set; }

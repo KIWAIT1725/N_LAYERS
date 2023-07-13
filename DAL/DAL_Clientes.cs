@@ -23,7 +23,7 @@ namespace DAL
             using (metodo data = new metodo())
             {
                 var Registro = data.Clientes.Find(Entidad.IDclientes);
-                Registro.activo = Entidad.activo;
+                Registro.Correo = Entidad.Correo;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
                 return data.SaveChanges() > 0;
