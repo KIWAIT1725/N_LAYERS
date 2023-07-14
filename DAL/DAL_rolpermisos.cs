@@ -9,7 +9,7 @@ namespace DAL
     {
         public static RoldePermisos Insert(RoldePermisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(RoldePermisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.RolPermisos.Find(Entidad.IdRolPermiso);
                 Registro.IdRol = Entidad.IdRol;
@@ -33,7 +33,7 @@ namespace DAL
         }
         public static bool Anular(RoldePermisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.RolPermisos.Find(Entidad.IdRolPermiso);
                 Registro.Activo = Entidad.Activo;
@@ -44,21 +44,21 @@ namespace DAL
         }
         public static bool Existe(RoldePermisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.RolPermisos.Where(c => c.IdRolPermiso == Entidad.IdRolPermiso).Count() > 0;
             }
         }
         public static RoldePermisos Registro(RoldePermisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.RolPermisos.Where(c => c.IdRolPermiso == Entidad.IdRolPermiso).SingleOrDefault();
             }
         }
         public static List<RoldePermisos> Lista(bool Activo = true)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.RolPermisos.Where(a => a.Activo == Activo).ToList();
             }

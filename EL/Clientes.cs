@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EL
 {
-    [Table("Formularios")]
+    [Table("Clientes")]
     public class Clientes
     {
         [Key]
@@ -27,7 +27,9 @@ namespace EL
         public DateTime? FechaActualizacion { get; set; }
         public Clientes()
         {
-            nombreCliente = "";
+            nombreCliente = string.Empty;
+            Numero = string.Empty;
+            Correo = string.Empty;
         }
 
     }

@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Permisos Insert(Permisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(Permisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Permisos.Find(Entidad.IdPermiso);
                 Registro.Permiso = Entidad.Permiso;
@@ -31,7 +31,7 @@ namespace DAL
         }
         public static bool Anular(Permisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Permisos.Find(Entidad.IdPermiso);
                 Registro.Activo = Entidad.Activo;
@@ -42,21 +42,21 @@ namespace DAL
         }
         public static bool Existe(Permisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Permisos.Where(a => a.IdPermiso == Entidad.IdPermiso).Count() > 0;
             }
         }
         public static Permisos Registro(Permisos Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Permisos.Where(c => c.IdPermiso == Entidad.IdPermiso).SingleOrDefault();
             }
         }
         public static List<Permisos> Lista(bool Activo = true)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Permisos.Where(c => c.Activo == Activo).ToList();
             }

@@ -9,7 +9,7 @@ namespace DAL
     {
         public static RolFormularios Insert(RolFormularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(RolFormularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.RolFormularios.Find(Entidad.IdRolFormulario);
                 Registro.IdRol = Entidad.IdRol;
@@ -32,7 +32,7 @@ namespace DAL
         }
         public static bool Anular(RolFormularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.RolFormularios.Find(Entidad.IdRolFormulario);
                 Registro.Activo = Entidad.Activo;
@@ -43,21 +43,21 @@ namespace DAL
         }
         public static bool Existe(RolFormularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.RolFormularios.Where(a => a.IdRolFormulario == Entidad.IdRolFormulario).Count() > 0;
             }
         }
         public static RolFormularios Registro(RolFormularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.RolFormularios.Where(c => c.IdRolFormulario == Entidad.IdRolFormulario).SingleOrDefault();
             }
         }
         public static List<RolFormularios> Lista(bool Activo = true)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.RolFormularios.Where(a => a.Activo == Activo).ToList();
             }

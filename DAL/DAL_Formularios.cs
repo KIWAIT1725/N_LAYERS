@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Formularios Insert(Formularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(Formularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Formularios.Find(Entidad.IdFormulario);
                 Registro.Formulario = Entidad.Formulario;
@@ -31,7 +31,7 @@ namespace DAL
         }
         public static bool Anular(Formularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Formularios.Find(Entidad.IdFormulario);
                 Registro.Activo = Entidad.Activo;
@@ -42,21 +42,21 @@ namespace DAL
         }
         public static bool Existe(Formularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Formularios.Where(c => c.IdFormulario == Entidad.IdFormulario).Count() > 0;
             }
         }
         public static Formularios Registro(Formularios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Formularios.Where(c => c.IdFormulario == Entidad.IdFormulario).SingleOrDefault();
             }
         }
         public static List<Formularios> Lista(bool Activo = true)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Formularios.Where(c => c.Activo == Activo).ToList();
             }

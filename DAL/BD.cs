@@ -3,9 +3,9 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 namespace DAL
 {
-    public class metodo : DbContext
+    public class DataBasic : DbContext
     {
-        public metodo() : base(Conexion.ConexionString(false)) { }
+        public DataBasic() : base(Conexion.ConexionString(false)) { }
 
         public virtual DbSet<Clientes>? Clientes { get; set; }
         public virtual DbSet<Formularios>? Formularios { get; set; }

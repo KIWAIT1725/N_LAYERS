@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Clientes Insert(Clientes Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 Entidad.activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(Clientes Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Clientes.Find(Entidad.IDclientes);
                 Registro.Correo = Entidad.Correo;
@@ -31,7 +31,7 @@ namespace DAL
         }
         public static bool Anular(Clientes Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Clientes.Find(Entidad.IDclientes);
                 Registro.activo = Entidad.activo;
@@ -42,21 +42,21 @@ namespace DAL
         }
         public static bool Existe(Clientes Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Clientes.Where(c => c.IDclientes == Entidad.IDclientes).Count() > 0;
             }
         }
         public static Clientes Registro(Clientes Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Clientes.Where(c => c.IDclientes == Entidad.IDclientes).SingleOrDefault();
             }
         }
         public static List<Clientes> Lista(bool Activo = true)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Clientes.Where(c => c.activo == Activo).ToList();
             }

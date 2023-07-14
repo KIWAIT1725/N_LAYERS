@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Usuarios Insert(Usuarios Entidad)
         {
-            using (metodo data= new metodo())
+            using (DataBasic data= new DataBasic())
             {
                 Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(Usuarios Entidad)
         {
-            using (metodo bd = new metodo())
+            using (DataBasic bd = new DataBasic())
             {
                 var Registro = bd.Usuarios.Find(Entidad.IdUsuarios);
                 Registro.Nombredelusuario = Entidad.Nombredelusuario;
@@ -37,7 +37,7 @@ namespace DAL
         }
         public static bool Anular(Usuarios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 var Registro = data.Usuarios.Find(Entidad.IdUsuarios);
                 Registro.Activo = Entidad.Activo;
@@ -48,21 +48,21 @@ namespace DAL
         }
         public static bool Existe(Usuarios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Usuarios.Where(c => c.IdUsuarios == Entidad.IdUsuarios).Count() > 0;
             }
         }
         public static Usuarios Registro(Usuarios Entidad)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Usuarios.Where(c => c.IdUsuarios == Entidad.IdUsuarios).SingleOrDefault();
             }
         }
         public static List<Usuarios> Lista(bool Activo = true)
         {
-            using (metodo data = new metodo())
+            using (DataBasic data = new DataBasic())
             {
                 return data.Usuarios.Where(c => c.Activo == Activo).ToList();
             }

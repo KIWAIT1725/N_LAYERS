@@ -11,7 +11,7 @@ namespace DAL
     {
         public static Roles Insert(Roles Entidad)
         {
-            using metodo data = new();
+            using DataBasic data = new();
             Entidad.Activo = true;
             Entidad.FechaRegistro = DateTime.Now;
             data.Roles.Add(Entidad);
@@ -20,7 +20,7 @@ namespace DAL
         }
         public static bool Update(Roles Entidad)
         {
-            using metodo data = new();
+            using DataBasic data = new();
             var Registro = data.Roles.Find(Entidad.IdRol);
             if (Registro == null)
             {
@@ -32,7 +32,7 @@ namespace DAL
         }
         public static bool Delete(Roles Entidad)
         {
-            using metodo data = new();
+            using DataBasic data = new();
             var Registro = data.Roles.Find(Entidad.IdRol);
             if (Registro == null)
             {
@@ -44,12 +44,12 @@ namespace DAL
         }
         public static Roles Registro(short IdRegistro)
         {
-            using metodo data = new();
+            using DataBasic data = new();
             return data.Roles.Find(IdRegistro);
         }
         public static List<Roles> Listar(bool Activo = true)
         {
-            using metodo data = new();
+            using DataBasic data = new();
             return data.Roles.Where(a => a.Activo == Activo).ToList();
         }
     }
