@@ -107,33 +107,36 @@ namespace UI
         }
         private void Guardar()
         {
-            Clientes clientes = new();
-            clientes.nombreCliente = txtNombre.Text;
-            clientes.Numero = txtTelefono.Text;
-            clientes.Correo = txtCorreo.Text;
-
-            if (IdRegistro > 0)
+            if (ValidarFormulario())
             {
-                //Actualizar
-                clientes.IdClientes = IdRegistro;
-                clientes.IdUsuarioActualiza = IdUsuarioSesion;
-                if (BLL_Clientes.Update(clientes))
+                Clientes clientes = new();
+                clientes.nombreCliente = txtNombre.Text;
+                clientes.Numero = txtTelefono.Text;
+                clientes.Correo = txtCorreo.Text;
+
+                if (IdRegistro > 0)
                 {
-                    MessageBox.Show("registro actualizado con Exito");
+                    //Actualizar
+                    clientes.IdClientes = IdRegistro;
+                    clientes.IdUsuarioActualiza = IdUsuarioSesion;
+                    if (BLL_Clientes.Update(clientes))
+                    {
+                        MessageBox.Show("registro actualizado con Exito");
+                        cargarGrid();
+                        return;
+                    }
+                    MessageBox.Show("El registro no fue Actualizado");
+                    return;
+
+                }
+                //Insertar
+                clientes.IdUsuarioRegistra = IdUsuarioSesion;
+                if (BLL_Clientes.Insert(clientes).IdClientes > 0)
+                {
+                    MessageBox.Show("Registro Exitoso");
                     cargarGrid();
                     return;
                 }
-                MessageBox.Show("El registro no fue Actualizado");
-                return;
-
-            }
-            //Insertar
-            clientes.IdUsuarioRegistra = IdUsuarioSesion;
-            if (BLL_Clientes.Insert(clientes).IdClientes > 0)
-            {
-                MessageBox.Show("Registro Exitoso");
-                cargarGrid();
-                return;
             }
         }
         private void Anular()
