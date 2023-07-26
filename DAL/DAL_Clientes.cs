@@ -11,7 +11,7 @@ namespace DAL
         {
             using (DataBasic data = new DataBasic())
             {
-                Entidad.activo = true;
+                Entidad.Activo = true;
                 Entidad.FechaRegistro = DateTime.Now;
                 data.Clientes.Add(Entidad);
                 data.SaveChanges();
@@ -22,7 +22,7 @@ namespace DAL
         {
             using (DataBasic data = new DataBasic())
             {
-                var Registro = data.Clientes.Find(Entidad.IDclientes);
+                var Registro = data.Clientes.Find(Entidad.IdClientes);
                 Registro.Correo = Entidad.Correo;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
@@ -33,8 +33,8 @@ namespace DAL
         {
             using (DataBasic data = new DataBasic())
             {
-                var Registro = data.Clientes.Find(Entidad.IDclientes);
-                Registro.activo = Entidad.activo;
+                var Registro = data.Clientes.Find(Entidad.IdClientes);
+                Registro.Activo = Entidad.Activo;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
                 return data.SaveChanges() > 0;
@@ -44,21 +44,21 @@ namespace DAL
         {
             using (DataBasic data = new DataBasic())
             {
-                return data.Clientes.Where(c => c.IDclientes == Entidad.IDclientes).Count() > 0;
+                return data.Clientes.Where(c => c.IdClientes == Entidad.IdClientes).Count() > 0;
             }
         }
         public static Clientes Registro(Clientes Entidad)
         {
             using (DataBasic data = new DataBasic())
             {
-                return data.Clientes.Where(c => c.IDclientes == Entidad.IDclientes).SingleOrDefault();
+                return data.Clientes.Where(c => c.IdClientes == Entidad.IdClientes).SingleOrDefault();
             }
         }
         public static List<Clientes> Lista(bool Activo = true)
         {
             using (DataBasic data = new DataBasic())
             {
-                return data.Clientes.Where(c => c.activo == Activo).ToList();
+                return data.Clientes.Where(c => c.Activo == Activo).ToList();
             }
         }
     }

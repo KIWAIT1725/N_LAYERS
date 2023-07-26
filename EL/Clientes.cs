@@ -7,7 +7,7 @@ namespace EL
     public class Clientes
     {
         [Key]
-        public int IDclientes { get; set; }
+        public int IdClientes { get; set; }
         [Required]
         [MaxLength(200)]
         public string nombreCliente { get; set; }
@@ -18,7 +18,7 @@ namespace EL
         [MaxLength(200)]
         public string Correo { get; set; }
         [Required]
-        public bool activo  { get; set;}
+        public bool Activo  { get; set;}
         [Required]
         public int IdUsuarioRegistra { get; set; }
         [Required]
