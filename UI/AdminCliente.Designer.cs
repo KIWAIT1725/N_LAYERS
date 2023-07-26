@@ -105,6 +105,7 @@
             btnNuevo.TabIndex = 6;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // btnGuardar
             // 
@@ -165,7 +166,9 @@
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
             Font = new Font("Times New Roman", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            MaximizeBox = false;
             Name = "AdminCliente";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "AdminCliente";
             Load += AdminCliente_Load;
             ((System.ComponentModel.ISupportInitialize)gridClientes).EndInit();

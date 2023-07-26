@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EL;
 using DAL;
+using System.Data.Odbc;
 
 namespace BLL
 {
@@ -31,6 +32,14 @@ namespace BLL
         public static List<Clientes> Lista(bool Activo = true)
         {
             return DAL_Clientes.Lista(Activo);
+        }
+        public static bool ExisteNumero(string Numero, int IdRegistro)
+        {
+            return DAL_Clientes.ExisteNumero(Numero, IdRegistro);
+        }
+        public static bool ExisteCorreo(string Email,int IdRegistro)
+        {
+            return DAL_Clientes.ExisteCorreo(Email, IdRegistro);
         }
     }
 }

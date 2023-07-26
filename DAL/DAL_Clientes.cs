@@ -61,5 +61,19 @@ namespace DAL
                 return data.Clientes.Where(c => c.Activo == Activo).ToList();
             }
         }
+        public static bool ExisteNumero(string Numero,int IdRegistro)
+        {
+            using(DataBasic data = new DataBasic())
+            {
+                return data.Clientes.Where(c => c.Numero == Numero && c.IdClientes != IdRegistro && c.Activo == true).Count() > 0;
+            }
+        }
+        public static bool ExisteCorreo(string Email, int IdRegistro)
+        {
+            using (DataBasic data = new DataBasic())
+            {
+                return data.Clientes.Where(c => c.Correo == Email && c.IdClientes != IdRegistro && c.Activo == true).Count() > 0;
+            }
+        }
     }
 }
