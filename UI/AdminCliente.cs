@@ -66,7 +66,7 @@ namespace UI
                 MessageBox.Show("Ingrese el Numero de Telefono");
                 return false;
             }
-            if (txtTelefono.Text.Length < 10)
+            if (txtTelefono.Text.Length < 8)
             {
                 MessageBox.Show("Numero no Valido");
                 return false;
